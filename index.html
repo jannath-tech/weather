@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Website</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet" 
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="weather.js"></script>
+    <style type="text/tailwindcss">
+        
+      @layer components {
+        .card {
+          @apply relative rounded-2xl bg-blue-200/30 backdrop-blur-md p-4;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-blue-400 h-[100vh]">
+    <!-- 🔄 Updated background image to climatepic.jpg -->
+    <img
+      src="climatepic.jpg"
+      alt="Weather Background"
+      class="fixed h-full w-full object-cover opacity-50"
+    />
+
+    <div
+      class="h-full grid grid-cols-1 grid-rows-auto md:grid-cols-2 md:grid-rows-2 lg:grid-cols-[1fr_3fr] lg:grid-rows-[1fr_auto] gap-4 p-4"
+    >
+      <div
+        class="card row-span-1 lg:row-span-2 flex flex-col items-center justify-center"
+      >
+        <img
+          src="https://openweathermap.org/img/wn/04d@4x.png"
+          alt="Weather Icon"
+          class="max-h-80 max-w-80"
+          id="weatherIcon"
+        />
+        <div class="flex">
+          <p id="temperature" class="text-6xl text-white font-extrabold">29</p>
+          <p class="text-gray-200 text-4xl font-bol">°C</p>
+        </div>
+        <p id="weatherData" class="text-3xl text-white font-bold mt-5">Weather</p>
+        <p id="weatherDescription" class="text-md font-semibold text-gray-200">description</p>
+        <p class="text-2xl text-gray-700 font-bold mt-10">Today</p>
+        <div class="flex mt-10">
+          <i class="material-icons text-white">location_on</i>
+          <p id="city" class="text-xl text-gray-100 font-bold">Hyderabad</p>
+        </div>
+      </div>
+
+      <div class="relative flex items-start row-span-1 col-span-1 gap-2">
+        <div class="card flex-1 forecast-card">
+          <p class="text-gray-200 font-bold forecast-day">Friday</p>
+          <img
+            src="https://openweathermap.org/img/wn/04d@2x.png"
+            alt="Weather Icon"
+            class="h-25 w-25 mx-auto forecast-icon"
+          />
+          <div class="flex justify-between">
+            <p class="text-gray-200 font-bold forecast-temp-min">25</p>
+            <p class="text-gray-200 font-bold forecast-temp-max">30</p>
+          </div>
+        </div>
+        <div class="card flex-1 forecast-card">
+          <p class="text-gray-200 font-bold forecast-day">Friday</p>
+          <img
+            src="https://openweathermap.org/img/wn/04d@2x.png"
+            alt="Weather Icon"
+            class="h-25 w-25 mx-auto forecast-icon"
+          />
+          <div class="flex justify-between">
+            <p class="text-gray-200 font-bold forecast-temp-min">25</p>
+            <p class="text-gray-200 font-bold forecast-temp-max">30</p>
+          </div>
+        </div>
+        <div class="card flex-1 forecast-card">
+          <p class="text-gray-200 font-bold forecast-day">Friday</p>
+          <img
+            src="https://openweathermap.org/img/wn/04d@2x.png"
+            alt="Weather Icon"
+            class="h-25 w-25 mx-auto forecast-icon"
+          />
+          <div class="flex justify-between">
+            <p class="text-gray-200 font-bold forecast-temp-min">25</p>
+            <p class="text-gray-200 font-bold forecast-temp-max">30</p>
+          </div>
+        </div>
+        <div class="card flex-1 forecast-card">
+          <p class="text-gray-200 font-bold forecast-day">Friday</p>
+          <img
+            src="https://openweathermap.org/img/wn/04d@2x.png"
+            alt="Weather Icon"
+            class="h-25 w-25 mx-auto forecast-icon"
+          />
+          <div class="flex justify-between">
+            <p class="text-gray-200 font-bold forecast-temp-min">25</p>
+            <p class="text-gray-200 font-bold forecast-temp-max">30</p>
+          </div>
+        </div>
+        <div class="card flex-1 forecast-card">
+          <p class="text-gray-200 font-bold forecast-day">Friday</p>
+          <img
+            src="https://openweathermap.org/img/wn/04d@2x.png"
+            alt="Weather Icon"
+            class="h-25 w-25 mx-auto forecast-icon"
+          />
+          <div class="flex justify-between">
+            <p class="text-gray-200 font-bold forecast-temp-min">24</p>
+            <p class="text-gray-200 font-bold forecast-temp-max">32</p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="col-span-1 row-span-1 md:col-span-2 md:row-span-1 lg:col-span-1 lg:row-span-1"
+      >
+        <p class="text-4xl text-white font-extrabold my-4">
+          Today's Highlights
+        </p>
+        <div
+          class="grid grid-cols-1 grid-rows-auto sm:grid-cols-2 sm:grid-rows-2 gap-4"
+        >
+          <div class="card">
+            <p class="text-gray-200 text-lg">Humidity</p>
+            <div class="flex mt-2">
+              <p id="humidity-value" class="text-white text-4xl font-bold mr-1">50</p>
+              <p class="text-gray-200 text-2xl font-bold mt-2">%</p>
+            </div>
+            <p id="humidity-text" class="text-gray-200 font-bold mt-2">Comfortable</p>
+            <div class="h-2.5 w-full rounded-full bg-gray-700">
+              <div id="humidity-bar" class="h-2.5 rounded-full bg-green-400 w-[30%] mt-3"></div>
+            </div>
+          </div>
+          <div class="card">
+            <p class="text-gray-200 text-lg">Wind Status</p>
+            <div class="flex mt-2">
+              <p id="wind-speed" class="text-white text-4xl font-bold mr-2">10</p>
+              <p class="text-gray-200 text-2xl font-bold mt-2">km/h</p>
+            </div>
+            <div class="flex mt-5">
+              <i id="wind-arrow" class="material-icons text-white mr-3">navigation</i>
+              <p id="wind-direction" class="text-white">NE</p>
+            </div>
+          </div>
+          <div class="card">
+            <p class="text-gray-200 text-lg">Air Quality</p>
+            <p id="aqi-value" class="text-white text-4xl font-bold mt-2 mr-2">2</p>
+            <p id="aqi-text" class="text-gray-200 font-bold mt-2">Good</p>
+            <div class="h-2.5 w-full rounded-full bg-gray-700">
+              <div id="aqi-bar" class="h-2.5 rounded-full bg-green-400 w-[30%] mt-3"></div>
+            </div>
+          </div>
+
+          <!-- ✅ Updated Sunrise & Sunset Time Card -->
+          <div class="card flex flex-row justify-around">
+            <div class="flex flex-col items-center justify-center">
+              <p class="text-gray-200 text-lg">Sunrise</p>
+              <div class="flex">
+                <i class="material-icons text-yellow-400 mr-2">wb_sunny</i>
+                <p class="text-white text-2xl font-bold">6:15 AM</p>
+              </div>
+            </div>
+            <div class="h-4/5 w-px bg-white self-center"></div>
+            <div class="flex flex-col items-center justify-center">
+              <p class="text-gray-200 text-lg">Sunset</p>
+              <div class="flex">
+                <i class="material-icons text-orange-400 mr-2">nights_stay</i>
+                <p class="text-white text-2xl font-bold">6:45 PM</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
